@@ -2,6 +2,8 @@ spring:
   application:
     name: payment-service
   config:
-    import: 'optional:configserver:${config-server}'
+    import: 'optional:configserver:${config-server:http://192.168.1.17:9090}'
+    name: app-server,payment-service
   profiles:
-    active: dev
+    active: '${active-profile:dev}'
+

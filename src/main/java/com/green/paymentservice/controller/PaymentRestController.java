@@ -28,7 +28,6 @@ public class PaymentRestController {
     @GetMapping(name = "Get Payment by ID ", path = "/getById")
     public ResponseEntity<Payment> getById(@RequestParam("id") Long id) {
         Payment payment = paymentRepository.findById(id).orElse(null);
-        
         return new ResponseEntity<>(payment, HttpStatus.OK);
     }
 
