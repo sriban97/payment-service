@@ -35,7 +35,7 @@ public class PaymentConsumer {
 
         log.info("{}End.", LOG_NAME);
     }
-    @KafkaListener(topics = Constant.Payment.TOPIC_CREATE_PAYMENT, groupId = Constant.Payment.GROUP_PAYMENT_V1)
+//    @KafkaListener(topics = Constant.Payment.TOPIC_CREATE_PAYMENT, groupId = Constant.Payment.GROUP_PAYMENT_V1)
     public void paymentReceiverV1(String request) {
         var LOG_NAME = "paymentReceiverV1";
 
