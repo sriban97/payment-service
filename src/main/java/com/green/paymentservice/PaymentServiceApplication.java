@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.kafka.KafkaAutoConfiguration;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.kafka.annotation.EnableKafka;
 
-@SpringBootApplication(exclude = KafkaAutoConfiguration.class)
+@SpringBootApplication
 @EnableFeignClients
 @EnableKafka
 public class PaymentServiceApplication {
