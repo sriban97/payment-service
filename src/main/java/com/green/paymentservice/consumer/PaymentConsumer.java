@@ -18,7 +18,12 @@ public class PaymentConsumer {
     @Autowired
     private PaymentRepository paymentRepository;
 
-    @KafkaListener(topics = Constant.Payment.TOPIC_CREATE_PAYMENT, groupId = Constant.Payment.GROUP_PAYMENT)
+    @KafkaListener(groupId = "client_group", topics = "client_info")
+    public void kafkaListener(String string) {
+        System.out.println("Client Imported: " + string);
+    }
+
+    @KafkaListener(topics = "create-payment", groupId = "client_group")
     public void paymentReceiver(String request) {
         var LOG_NAME = "paymentReceiver";
 
@@ -35,7 +40,7 @@ public class PaymentConsumer {
 
         log.info("{}End.", LOG_NAME);
     }
-//    @KafkaListener(topics = Constant.Payment.TOPIC_CREATE_PAYMENT, groupId = Constant.Payment.GROUP_PAYMENT_V1)
+    @KafkaListener(topics = Constant.Payment.TOPIC_CREATE_PAYMENT, groupId = Constant.Payment.GROUP_PAYMENT_V1)
     public void paymentReceiverV1(String request) {
         var LOG_NAME = "paymentReceiverV1";
 
